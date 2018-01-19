@@ -26,7 +26,3 @@ export const deleteAllMessagesHelper = (body) => {
       roomname = ('${body.roomname}')
   `;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> [ops] - Go home button deletes only messages from current room.

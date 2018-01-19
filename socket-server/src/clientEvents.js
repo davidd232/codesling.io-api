@@ -7,6 +7,7 @@ import {
   serverLeave,
   serverRun,
   serverMessage,
+  serverLogin,
 } from './serverEvents';
 
 /**
@@ -57,12 +58,18 @@ const clientMessage = ({ io, room }, payload) => {
   serverMessage({ io, room }, payload);
 };
 
+const clientLogin = ({ io, room }, payload) => {
+  log('client login heard', payload);
+  serverLogin({ io, room }, payload);
+}
+
 const clientEmitters = {
   'client.ready': clientReady,
   'client.update': clientUpdate,
   'client.disconnect': clientDisconnect,
   'client.run': clientRun,
   'client.message': clientMessage,
+  'client.login': clientLogin,
 };
 
 export default clientEmitters;

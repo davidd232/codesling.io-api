@@ -46,3 +46,10 @@ export const serverMessage = ({ io, room }, message) => {
     .in(room.get('id'))
     .emit('server.message', message);
 };
+
+export const serverLogin = ({ io, room }, body) => {
+  io
+    .in(room.get('id'))
+    .emit('server.login', body);
+  console.log('room', room);
+};

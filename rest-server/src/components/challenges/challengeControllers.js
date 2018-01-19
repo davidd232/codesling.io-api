@@ -5,6 +5,9 @@ import {
   addUserChallengeQuery
 } from '../usersChallenges/usersChallengesQueries';
 import {
+  getChallengesQuery
+} from './challengeQueries';
+import {
   success,
   error
 } from '../../lib/log';
@@ -25,3 +28,12 @@ export const addChallengeController = async (req, res) => {
   }
 };
 
+export const getAllChallengesController = async (req, res) => {
+  try {
+    const data = await getChallengesQuery();
+    success('got all challenges cont', data);
+    return res.status(200).send(data);
+  } catch (err) {
+    error('error getting challenges', err);
+  }
+}

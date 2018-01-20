@@ -50,6 +50,6 @@ export const serverMessage = ({ io, room }, message) => {
 export const serverLogin = ({ io, room }, body) => {
   io
     .in(room.get('id'))
+    // .to('http://localhost:1337/home', body)
     .emit('server.login', body);
-  console.log('room', room);
 };
